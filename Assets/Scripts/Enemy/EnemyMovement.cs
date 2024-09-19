@@ -4,19 +4,46 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
 
     [SerializeField] private Transform _target;
 
-    private void Update()
-    {
-        //if (Vector3.Distance(transform.position, _target.position) > 2f)
-        //{
+    Collider2D myCol;
+    Collider2D targetCol;
+    private float _speed;
+    private bool _stopMove;
 
-        //}
-        MoveTowardsTarget();
-        RotateTowardsTarget();
+    public bool StopMove { get => _stopMove; set => _stopMove = value; }
+
+    private void Awake()
+    {
+        myCol = GetComponent<Collider2D>();
+    }
+
+    private void Start()
+    {
+        _speed = _moveSpeed;
+        _stopMove = false;
+
+        if (_target)
+        {
+            targetCol = _target.gameObject.GetComponent<Collider2D>();
+        }
+    }
+
+    private void FixedUpdate()
+    { 
+        if (_target != null && !_stopMove)
+        {
+            ColliderDistance2D distance = myCol.Distance(targetCol);
+            if (!distance.isOverlapped)
+            {
+                MoveTowardsTarget();
+                RotateTowardsTarget();
+            }
+        }
+                
     }
 
     private void MoveTowardsTarget()
@@ -26,10 +53,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void RotateTowardsTarget()
     {
-        var offset = 90f;
         Vector2 direction = _target.position - transform.position;
         direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
+        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
     }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+    }
+    
 }

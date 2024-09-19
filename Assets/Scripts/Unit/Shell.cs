@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class Shell : MonoBehaviour
 {
-    [SerializeField] LayerMask collisionMask;
+    private LayerMask _collisionMask;
     private Vector2 _direction;
     private float _damage;
     private Vector2 _target;
     private GameObject target;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Destroy(gameObject, 3f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckCollsion(5f * Time.deltaTime);
@@ -23,15 +21,16 @@ public class Shell : MonoBehaviour
         transform.Translate(_direction * Time.deltaTime * 5f);
     }
 
-    public void Init(Vector2 direction, float damage)
+    public void Init(Vector2 direction, float damage, LayerMask collisionMask)
     {
         _direction = direction;
         _damage = damage;
+        _collisionMask = collisionMask;
     }
 
     private void CheckCollsion(float moveDistance)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, moveDistance, collisionMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, moveDistance, _collisionMask);
         if (hit)
         {
             OutHitObject(hit);
@@ -48,11 +47,4 @@ public class Shell : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    //private void MoveToPos()
-    //{
-    //    transform.position = Vector2.MoveTowards(transform.position, _target, 1f);
-    //}
-
-
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-    public abstract void Execute(IAttacker attacker, IDamageable target);
+    public abstract void Execute(IAttacker attacker, IDamageable target, LayerMask collisionMask);
 }

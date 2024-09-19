@@ -18,6 +18,9 @@ public class FindObject
             case TargetType.LeastHp:
                 target = FindLeastAmountOfHp(hitColliders, myPos);
                 break;
+            case TargetType.MostHp:
+                target = FindMostAmountOfHp(hitColliders, myPos);
+                break;
             default:
                 break;
         }
@@ -55,6 +58,24 @@ public class FindObject
         {
             float currentHp = go.GetComponent<Health>().CurrentHealth;
             if (currentHp < hp)
+            {
+                target = go.gameObject;
+                hp = currentHp;
+            }
+        }
+
+        return target;
+    }
+
+    public GameObject FindMostAmountOfHp(Collider2D[] allTargets, Vector2 myPos)
+    {
+        GameObject target = null;
+
+        float hp = 0f;
+        foreach (var go in allTargets)
+        {
+            float currentHp = go.GetComponent<Health>().CurrentHealth;
+            if (currentHp > hp)
             {
                 target = go.gameObject;
                 hp = currentHp;

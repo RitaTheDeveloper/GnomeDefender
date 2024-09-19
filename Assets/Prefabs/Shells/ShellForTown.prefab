@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7254902, g: 0.29019612, b: 0.6722601, a: 1}
+  m_Color: {r: 0.7254902, g: 0.29019612, b: 0.37353012, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6992111680082819410}
   - component: {fileID: 6594850042858956989}
   m_Layer: 0
-  m_Name: Shell
+  m_Name: ShellForTown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
 --- !u!58 &6594850042858956989
 CircleCollider2D:
   m_ObjectHideFlags: 0

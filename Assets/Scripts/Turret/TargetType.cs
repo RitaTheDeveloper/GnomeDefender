@@ -5,5 +5,6 @@ using UnityEngine;
 public enum TargetType 
 {
     Nearest,
-    LeastHp
+    LeastHp,
+    MostHp
 }

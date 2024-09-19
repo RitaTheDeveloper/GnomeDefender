@@ -8,8 +8,16 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] private Transform _target;
     private NavMeshAgent _navMeshAgent;
     private UnitParameters _unitParameters;
+
+    Collider2D myCol;
+    Collider2D targetCol;
+   
+
     private void Start()
     {
+        myCol = GetComponent<Collider2D>();
+        targetCol = _target.gameObject.GetComponent<Collider2D>();
+
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
@@ -18,7 +26,15 @@ public class AgentMovement : MonoBehaviour
 
     private void Update()
     {
-        
+        ColliderDistance2D distance = myCol.Distance(targetCol);
+        if (distance.isOverlapped)
+        {
+            _navMeshAgent.speed = 0f;
+        }
+        else
+        {
+           // _navMeshAgent.speed 
+        }
     }
 
 }

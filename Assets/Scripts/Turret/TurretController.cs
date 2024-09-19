@@ -4,9 +4,5 @@ using UnityEngine;
 
 public class TurretController : Unit
 {
-
-    private void Update()
-    {
-        
-    }
+    
 }
