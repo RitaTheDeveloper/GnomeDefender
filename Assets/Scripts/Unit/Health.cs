@@ -9,6 +9,7 @@ public class Health : MonoBehaviour, IDamageable
     private UnitParameters _unitParameters;
 
     public float CurrentHealth { get => _currentHealth; }
+    public float StartHealth { get => _startHealth; set => _startHealth = value; }
 
     private void Start()
     {
