@@ -7,18 +7,21 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
 
-    [SerializeField] private Transform _target;
-
     Collider2D myCol;
     Collider2D targetCol;
     private float _speed;
     private bool _stopMove;
+
+    GameObject target;
+
+    private EnemyController enemycontroller;
 
     public bool StopMove { get => _stopMove; set => _stopMove = value; }
 
     private void Awake()
     {
         myCol = GetComponent<Collider2D>();
+       // enemycontroller.GetComponent<EnemyController>();
     }
 
     private void Start()
@@ -26,15 +29,21 @@ public class EnemyMovement : MonoBehaviour
         _speed = _moveSpeed;
         _stopMove = false;
 
-        if (_target)
+        if (target)
         {
-            targetCol = _target.gameObject.GetComponent<Collider2D>();
+            targetCol = target.gameObject.GetComponent<Collider2D>();
         }
     }
 
     private void FixedUpdate()
-    { 
-        if (_target != null && !_stopMove)
+    {
+
+        if (target)
+        {
+            targetCol = target.gameObject.GetComponent<Collider2D>();
+        }
+
+        if (target != null && !_stopMove)
         {
             ColliderDistance2D distance = myCol.Distance(targetCol);
             if (!distance.isOverlapped)
@@ -43,25 +52,34 @@ public class EnemyMovement : MonoBehaviour
                 RotateTowardsTarget();
             }
         }
-                
+
     }
 
     private void MoveTowardsTarget()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+    {                     
+        if (target)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, _speed * Time.deltaTime);
+        }
+            
     }
 
     private void RotateTowardsTarget()
     {
-        Vector2 direction = _target.position - transform.position;
-        direction.Normalize();
-        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
+        if (target)
+        {
+            Vector2 direction = target.transform.position - transform.position;
+            direction.Normalize();
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
+        }
+        
     }
 
-    public void SetTarget(Transform target)
+
+    public void SetTarget(GameObject target)
     {
-        _target = target;
+        this.target = target;
     }
     
 }

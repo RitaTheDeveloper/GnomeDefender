@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class EnemyController : Unit
 {
-    [SerializeField] private GameObject _currentTarget = null;
+    [SerializeField] private TargetTypeAndDetectionRadius[] targets;
+    //private GameObject _currentTarget = null;
     private EnemyMovement _enemyMovement;
+    GameObject target1, target2;
 
     protected override void Start()
     {
-        _currentTarget = GameObject.FindGameObjectWithTag("Town");
+        DefineTheTarget dt = new DefineTheTarget();
+        target1 = dt.FindTargetAtScene(TargetForEnemyType.Player);
+        target2 = dt.FindTargetAtScene(TargetForEnemyType.Town);
+        DefineTarget();
         _enemyMovement = GetComponent<EnemyMovement>();
-        if (_currentTarget)
+        if (_target)
         {
-            _enemyMovement.SetTarget(_currentTarget.transform);
-            SetTarget(_currentTarget);
+            _enemyMovement.SetTarget(_target);
+            SetTarget(_target);
         }
         base.Start();
+    }
+    private void Update()
+    {
+        DefineTarget();
+        _enemyMovement.SetTarget(_target);
     }
 
     public override void Attacking()
@@ -27,6 +37,26 @@ public class EnemyController : Unit
         {
             Attack();
             _enemyMovement.StopMove = true;
+        }
+        else
+        {
+            _enemyMovement.StopMove = false;
+        }
+    }
+
+    public void DefineTarget()
+    {
+        if (Vector2.Distance(transform.position, target1.transform.position) <= targets[0].detectionRadius)
+        {
+            _target = target1;
+        }
+        else if (Vector2.Distance(transform.position, target2.transform.position) <= targets[1].detectionRadius)
+        {
+            _target = target2;
+        }
+        else
+        {
+            _target = null;
         }
     }
 }

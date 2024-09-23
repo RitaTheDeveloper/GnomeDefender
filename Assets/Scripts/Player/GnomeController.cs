@@ -27,6 +27,7 @@ public class GnomeController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
-        _rb.velocity = _rb.velocity = new Vector2(moveHorizontal * _speed, moveVertical * _speed);              
+        Vector2 input = new Vector2(moveHorizontal, moveVertical);
+        _rb.MovePosition(_rb.position + input * _speed * Time.fixedDeltaTime);
     }
 }

@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cd: 1
   _damage: 1
-  _attackRange: 7
+  _attackRange: 10
   _startHealth: 5
 --- !u!114 &1847944370295906606
 MonoBehaviour:
@@ -105,8 +105,14 @@ MonoBehaviour:
   _targetType: 0
   _layerMask:
     serializedVersion: 2
-    m_Bits: 256
-  _currentTarget: {fileID: 0}
+    m_Bits: 768
+  targets:
+  - targetType: 0
+    detectionRadius: 15
+  - targetType: 1
+    detectionRadius: 100
+  rad1: 20
+  rad2: 100
 --- !u!114 &3737515447362152105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,9 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f881b79068fbeb4c8078ac15eecd8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
+  _moveSpeed: 7
   _rotationSpeed: 720
-  _target: {fileID: 0}
 --- !u!114 &5261065829321661277
 MonoBehaviour:
   m_ObjectHideFlags: 0

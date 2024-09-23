@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shell : MonoBehaviour
 {
+    [SerializeField] private float _speed = 5f;
     private LayerMask _collisionMask;
     private Vector2 _direction;
     private float _damage;
@@ -18,7 +19,7 @@ public class Shell : MonoBehaviour
     {
         CheckCollsion(5f * Time.deltaTime);
 
-        transform.Translate(_direction * Time.deltaTime * 5f);
+        transform.Translate(_direction * Time.deltaTime * _speed);
     }
 
     public void Init(Vector2 direction, float damage, LayerMask collisionMask)
