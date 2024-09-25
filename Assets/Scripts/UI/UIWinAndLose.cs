@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIWinAndLose : MonoBehaviour
 {
@@ -22,5 +23,11 @@ public class UIWinAndLose : MonoBehaviour
     private void AllOff()
     {
         _loseObj.SetActive(false);
+    }
+
+    public void OnClickRestart()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 }

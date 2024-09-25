@@ -32,7 +32,6 @@ public class TimeController : MonoBehaviour
         if (_currentTime > 0)
         {
             _currentTime -= Time.deltaTime;
-            Debug.Log(_currentTime);
         }
         else
         {
