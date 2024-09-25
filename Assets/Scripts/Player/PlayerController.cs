@@ -51,4 +51,6 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetTrigger("Hit");
     }
+
+
 }

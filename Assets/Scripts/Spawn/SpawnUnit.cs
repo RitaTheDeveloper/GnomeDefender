@@ -8,8 +8,10 @@ public class SpawnUnit : MonoBehaviour
     [SerializeField] private Transform _unitTransform;
     [SerializeField] private float _cd;
     [SerializeField] private float _radiusOfTown;
-    [SerializeField] private Transform _target;
-    [SerializeField] private SpawnerController spawnerController;
+    [SerializeField] private TargetForEnemyType _spawnFromTypeTarget;
+    private Transform _target;
+
+    private SpawnerController _spawnerController;
 
     private Vector3 _spawnPosition;
 
@@ -20,18 +22,24 @@ public class SpawnUnit : MonoBehaviour
             SetPosition();
             StartCoroutine(SpawnOneUnit());
         }
+    }
 
+    public void Init(SpawnerController spawnerController)
+    {
+        _spawnerController = spawnerController;
+        _target = _spawnerController.GetTarget(_spawnFromTypeTarget).transform;
     }
 
     private IEnumerator SpawnOneUnit()
     {
-        while (_target && spawnerController.CanSpawn())
+        while (_target && _spawnerController.CanSpawn())
         {
             yield return new WaitForSeconds(_cd);
             SetPosition();
             var unit = Instantiate(_unitPrefab, _unitTransform);
             unit.transform.position = _spawnPosition;
-            spawnerController.IncreaseCounterOfEnemies(1);
+            unit.GetComponent<Unit>().Init(_spawnerController);
+            _spawnerController.IncreaseCounterOfEnemies(1);
         }
     }
 

@@ -7,13 +7,12 @@ public class EnemyController : Unit
     [SerializeField] private TargetTypeAndDetectionRadius[] targets;
     //private GameObject _currentTarget = null;
     private EnemyMovement _enemyMovement;
-    GameObject target1, target2;
+    GameObject _targetPlayer, _targetTown;
 
     protected override void Start()
     {
-        DefineTheTarget dt = new DefineTheTarget();
-        target1 = dt.FindTargetAtScene(TargetForEnemyType.Player);
-        target2 = dt.FindTargetAtScene(TargetForEnemyType.Town);
+        _targetPlayer = _spawnerController.GetTarget(TargetForEnemyType.Player);
+        _targetTown = _spawnerController.GetTarget(TargetForEnemyType.Town);
         DefineTarget();
         _enemyMovement = GetComponent<EnemyMovement>();
         if (_target)
@@ -46,13 +45,13 @@ public class EnemyController : Unit
 
     public void DefineTarget()
     {
-        if (Vector2.Distance(transform.position, target1.transform.position) <= targets[0].detectionRadius)
+        if (_targetPlayer && Vector2.Distance(transform.position, _targetPlayer.transform.position) <= targets[0].detectionRadius)
         {
-            _target = target1;
+            _target = _targetPlayer;
         }
-        else if (Vector2.Distance(transform.position, target2.transform.position) <= targets[1].detectionRadius)
+        else if (_targetTown && Vector2.Distance(transform.position, _targetTown.transform.position) <= targets[1].detectionRadius)
         {
-            _target = target2;
+            _target = _targetTown;
         }
         else
         {

@@ -30,4 +30,9 @@ public class GnomeController : MonoBehaviour
         Vector2 input = new Vector2(moveHorizontal, moveVertical);
         _rb.MovePosition(_rb.position + input * _speed * Time.fixedDeltaTime);
     }
+
+    public void Die()
+    {
+
+    }
 }

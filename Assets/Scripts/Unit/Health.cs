@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour, IDamageable
 {
+    public Action onDead;
+
     private float _startHealth;
     private float _currentHealth;
     private UnitParameters _unitParameters;
@@ -30,6 +33,7 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        onDead?.Invoke();
         Destroy(gameObject);
     }
 }

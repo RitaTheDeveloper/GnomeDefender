@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour, IAttacker
     protected float _timer = 0f;
     protected UnitParameters _unitParameters;
     protected GameObject _target = null;
+    protected SpawnerController _spawnerController;
 
     protected virtual void Start()
     {
@@ -23,6 +24,11 @@ public class Unit : MonoBehaviour, IAttacker
             Attacking();
         }
 
+    }
+    
+    public void Init(SpawnerController spawnerController)
+    {
+        _spawnerController = spawnerController;
     }
 
     protected virtual void UseAbility(IDamageable target, int index = 0)
