@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UITown : MonoBehaviour
+public class UIHealthController : MonoBehaviour
 {
     public Health health;
     public UIHealth uiHealth;
