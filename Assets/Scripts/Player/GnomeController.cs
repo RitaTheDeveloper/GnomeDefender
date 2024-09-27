@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GnomeController : MonoBehaviour
+public class GnomeController : MonoBehaviour, IMoveable
 {
-    [SerializeField] private float _speed = 5f;
-    private Rigidbody2D _rb;
-    private SpriteRenderer _spriteRenderer;
-    private Animator _animator;
+    [field: SerializeField] public float Speed { get; set; } = 5f;
+    public Rigidbody2D RB { get; set; }
+
+
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        RB = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -20,19 +20,14 @@ public class GnomeController : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
 
-    private void Move()
+    public void Move()
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         Vector2 input = new Vector2(moveHorizontal, moveVertical);
-        _rb.MovePosition(_rb.position + input * _speed * Time.fixedDeltaTime);
-    }
-
-    public void Die()
-    {
-
+        RB.MovePosition(RB.position + input * Speed * Time.fixedDeltaTime);
     }
 }
