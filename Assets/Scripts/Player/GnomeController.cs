@@ -20,7 +20,6 @@ public class GnomeController : Unit, IMoveable
     protected override void FixedUpdate()
     {
         Move();
-        
     }
 
     private void Update()

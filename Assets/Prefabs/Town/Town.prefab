@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 1045830916501777213}
   - component: {fileID: 2761629449313762539}
   - component: {fileID: 7851893866706735056}
+  - component: {fileID: 107576859647138675}
   m_Layer: 8
   m_Name: Town
   m_TagString: Town
@@ -355,7 +356,7 @@ MonoBehaviour:
   _cd: 0
   _damage: 0
   _attackRange: 0
-  _startHealth: 40
+  _startHealth: 100
 --- !u!114 &1045830916501777213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +419,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &107576859647138675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7758096575412369282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5995ac1b8bb80e14e9a3dda8472db1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <GoldPerSec>k__BackingField: 1
 --- !u!1 &7890619878238337548
 GameObject:
   m_ObjectHideFlags: 0

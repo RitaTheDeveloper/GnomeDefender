@@ -7,22 +7,26 @@ public class MinerGnomeState : IState
     GnomeSM _gnomeSM;
     SpriteRenderer _bodySR;
     Color _minerBodyColor = Color.black;
-    Color _startingBodyColor; 
-    public MinerGnomeState(GnomeSM gnomeSM, SpriteRenderer spriteRenederer)
+    Color _startingBodyColor;
+    CurrencyController _currencyController;
+    public MinerGnomeState(GnomeSM gnomeSM, SpriteRenderer spriteRenederer, CurrencyController currencyController)
     {
         _gnomeSM = gnomeSM;
         _bodySR = spriteRenederer;
+        _currencyController = currencyController;
     }
 
     public void Enter()
     {
         _startingBodyColor = _bodySR.color;
         _bodySR.color = _minerBodyColor;
+        _currencyController.DoubleGold = true;
     }
 
     public void Exit()
     {
         _bodySR.color = _startingBodyColor;
+        _currencyController.DoubleGold = false;
     }
 
     public void FixedTick()
