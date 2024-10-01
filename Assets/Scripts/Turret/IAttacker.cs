@@ -6,4 +6,5 @@ public interface IAttacker
 {
     public float GetDamage();
     public void Attack();
+    public void Attacking();
 }

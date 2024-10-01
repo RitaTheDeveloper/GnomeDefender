@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GnomeController : MonoBehaviour, IMoveable
+public class GnomeController : Unit, IMoveable
 {
+    GnomeSM _gnomeSM;
     [field: SerializeField] public float Speed { get; set; } = 5f;
     public Rigidbody2D RB { get; set; }
 
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         RB = GetComponent<Rigidbody2D>();
+        _gnomeSM = GetComponent<GnomeSM>();
     }
 
-    private void FixedUpdate()
+
+    protected override void FixedUpdate()
     {
         Move();
+        
     }
 
     private void Update()

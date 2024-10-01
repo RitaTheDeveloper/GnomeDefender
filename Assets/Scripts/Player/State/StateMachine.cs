@@ -7,6 +7,18 @@ public class StateMachine : MonoBehaviour
     public IState CurrentState { get; private set; }
     public IState _previosState;
 
+    private void Update()
+    {
+        if (CurrentState != null)
+            CurrentState.Tick();
+    }
+
+    private void FixedUpdate()
+    {
+        if (CurrentState != null)
+            CurrentState.FixedTick();
+    }
+
     public void ChangeState(IState newState)
     {
         if (CurrentState == newState)

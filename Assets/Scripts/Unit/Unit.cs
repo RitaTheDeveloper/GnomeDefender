@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour, IAttacker
     protected GameObject _target = null;
     protected SpawnerController _spawnerController;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         _unitParameters = GetComponent<UnitParameters>();
     }

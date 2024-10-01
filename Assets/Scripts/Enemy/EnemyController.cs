@@ -8,10 +8,18 @@ public class EnemyController : Unit
     //private GameObject _currentTarget = null;
     private EnemyMovement _enemyMovement;
     GameObject _targetPlayer, _targetTown;
+    GnomeSM _playerSM;
 
-    protected override void Start()
+    protected override void Awake()
+    {
+        base.Awake();
+              
+    }
+
+    private void Start()
     {
         _targetPlayer = _spawnerController.GetTarget(TargetForEnemyType.Player);
+        _playerSM = _targetPlayer.GetComponent<GnomeSM>();
         _targetTown = _spawnerController.GetTarget(TargetForEnemyType.Town);
         DefineTarget();
         _enemyMovement = GetComponent<EnemyMovement>();
@@ -20,8 +28,8 @@ public class EnemyController : Unit
             _enemyMovement.SetTarget(_target);
             SetTarget(_target);
         }
-        base.Start();
     }
+
     private void Update()
     {
         DefineTarget();
@@ -45,7 +53,7 @@ public class EnemyController : Unit
 
     public void DefineTarget()
     {
-        if (_targetPlayer && Vector2.Distance(transform.position, _targetPlayer.transform.position) <= targets[0].detectionRadius)
+        if (_targetPlayer  && _playerSM.CurrentState == _playerSM.KillerState && Vector2.Distance(transform.position, _targetPlayer.transform.position) <= targets[0].detectionRadius)
         {
             _target = _targetPlayer;
         }
