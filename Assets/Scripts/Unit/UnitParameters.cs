@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class UnitParameters : MonoBehaviour
 {
-    [SerializeField] private float _cd;
-    [SerializeField] private float _damage;
-    [SerializeField] private float _attackRange;
-    [SerializeField] private float _startHealth;
+    [field: SerializeField] public float StartCd { get; set; }
+    [field: SerializeField] public float StartDamage { get; set; }
+    [field: SerializeField] public float StartAttackRange { get; set; }
+    [field: SerializeField] public float StartMaxHealth { get; set; }
+    [field: SerializeField] public float ExpForKill { get; set; }
 
-    public float Cd { get => _cd; set => _cd = value; }
-    public float Damage { get => _damage; set => _damage = value; }
-    public float AttackRange { get => _attackRange; set => _attackRange = value; }
-    public float StartHealth { get => _startHealth; set => _startHealth = value; }
+    public float CurrentMaxHealth { get; set; }
+    public float CurrentDamage { get; set; }
+
+    private void Start()
+    {
+        CurrentMaxHealth = StartMaxHealth;
+        CurrentDamage = StartDamage;
+    }
 }

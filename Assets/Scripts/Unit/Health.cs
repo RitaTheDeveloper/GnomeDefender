@@ -17,7 +17,7 @@ public class Health : MonoBehaviour, IDamageable
     private void Start()
     {
         _unitParameters = GetComponent<UnitParameters>();
-        _startHealth = _unitParameters.StartHealth;
+        _startHealth = _unitParameters.StartMaxHealth;
         _currentHealth = _startHealth;
     }
 
@@ -35,5 +35,10 @@ public class Health : MonoBehaviour, IDamageable
     {
         onDead?.Invoke();
         Destroy(gameObject);
+    }
+
+    public void UpdateMaxHP()
+    {
+        _startHealth = _unitParameters.CurrentMaxHealth;
     }
 }

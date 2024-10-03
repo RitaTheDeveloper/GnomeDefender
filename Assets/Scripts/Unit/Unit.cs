@@ -41,9 +41,9 @@ public class Unit : MonoBehaviour, IAttacker
     {
         _timer += Time.fixedDeltaTime;
         FindObject findObject = new FindObject();
-        _target = findObject.FindTarget(_targetType, this.transform.position, _unitParameters.AttackRange, _layerMask);
+        _target = findObject.FindTarget(_targetType, this.transform.position, _unitParameters.StartAttackRange, _layerMask);
 
-        if (_timer > _unitParameters.Cd && _target)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
+        if (_timer > _unitParameters.StartCd && _target)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
             Attack();
     }
 

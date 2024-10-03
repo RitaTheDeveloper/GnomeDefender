@@ -68,6 +68,5 @@ public class GameManager : MonoBehaviour
         onLose.Invoke();
         _timeController.StopTime();
         _isGameOver = true;
-        Debug.Log("game is over");
     }
 }

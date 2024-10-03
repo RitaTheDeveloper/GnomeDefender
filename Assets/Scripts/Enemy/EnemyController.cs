@@ -7,13 +7,24 @@ public class EnemyController : Unit
     [SerializeField] private TargetTypeAndDetectionRadius[] targets;
     //private GameObject _currentTarget = null;
     private EnemyMovement _enemyMovement;
+    private Health _enemyHealth;
     GameObject _targetPlayer, _targetTown;
     GnomeSM _playerSM;
 
     protected override void Awake()
     {
         base.Awake();
-              
+        _enemyHealth = GetComponent<Health>();     
+    }
+
+    private void OnEnable()
+    {
+        _enemyHealth.onDead += Die;
+    }
+
+    private void OnDisable()
+    {
+        _enemyHealth.onDead += Die;
     }
 
     private void Start()
@@ -40,7 +51,7 @@ public class EnemyController : Unit
     {
         _timer += Time.fixedDeltaTime;
 
-        if (_timer > _unitParameters.Cd && _target && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
+        if (_timer > _unitParameters.StartCd && _target && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.StartAttackRange)
         {
             Attack();
             _enemyMovement.StopMove = true;
@@ -65,5 +76,10 @@ public class EnemyController : Unit
         {
             _target = null;
         }
+    }
+
+    private void Die()
+    {
+        Actions.OnEnemyKilled(_unitParameters.ExpForKill);
     }
 }

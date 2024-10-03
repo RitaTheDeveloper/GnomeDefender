@@ -167,10 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93861e303e115d947bd6c05c6f321ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cd: 1
-  _damage: 1
-  _attackRange: 5
-  _startHealth: 0
+  <StartCd>k__BackingField: 0.5
+  <StartDamage>k__BackingField: 1
+  <StartAttackRange>k__BackingField: 8
+  <StartHealth>k__BackingField: 10
+  <ExpForKill>k__BackingField: 0
 --- !u!114 &1208353308731511183
 MonoBehaviour:
   m_ObjectHideFlags: 0

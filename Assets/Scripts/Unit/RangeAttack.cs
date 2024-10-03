@@ -13,7 +13,7 @@ public class RangeAttack : Ability
 
         Component Target = (Component)target;
         Component Attacker = (Component)attacker;
-        float damage = Attacker.GetComponent<UnitParameters>().Damage;
+        float damage = Attacker.GetComponent<UnitParameters>().CurrentDamage;
         direction = Target.transform.position - Attacker.transform.position;
         shell = Instantiate(shellprefab, Attacker.transform.position, Quaternion.identity);
         shell.GetComponent<Shell>().Init(direction, damage, collisionMask);
