@@ -549,6 +549,9 @@ MonoBehaviour:
   _maxNumberOfEnemies: 50
   _listOfEnemySpawners:
   - {fileID: 2051248059}
+  - {fileID: 499419860}
+  - {fileID: 1789020618}
+  - {fileID: 233870100}
 --- !u!4 &264618285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3637929831235278349, guid: caa9d67c2136edd48b72bbff3abb2117, type: 3}
@@ -5332,7 +5335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitPrefab: {fileID: 1847944370295906606, guid: caa9d67c2136edd48b72bbff3abb2117, type: 3}
   _unitTransform: {fileID: 2051248060}
-  _cd: 0.3
+  _cd: 1
   _radiusOfTown: 40
   _spawnFromTypeTarget: 1
 --- !u!4 &2051248060
