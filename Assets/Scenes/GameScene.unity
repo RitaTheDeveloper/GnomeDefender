@@ -495,6 +495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitPrefab: {fileID: 1847944370295906606, guid: 373430103ca6cd847bce347f831c68a5, type: 3}
   _unitTransform: {fileID: 233870099}
+  _startSpawnTime: 1
+  _endSpawnTime: 5
   _cd: 3
   _radiusOfTown: 60
   _spawnFromTypeTarget: 1
@@ -1285,6 +1287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitPrefab: {fileID: 1847944370295906606, guid: 849753641777d9846b5e04880d5260fe, type: 3}
   _unitTransform: {fileID: 499419859}
+  _startSpawnTime: 1
+  _endSpawnTime: 5
   _cd: 2
   _radiusOfTown: 40
   _spawnFromTypeTarget: 0
@@ -4385,6 +4389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitPrefab: {fileID: 1847944370295906606, guid: 9436bde95b079234e99cf2f75058d19a, type: 3}
   _unitTransform: {fileID: 1789020617}
+  _startSpawnTime: 1
+  _endSpawnTime: 5
   _cd: 3
   _radiusOfTown: 40
   _spawnFromTypeTarget: 1
@@ -5335,6 +5341,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitPrefab: {fileID: 1847944370295906606, guid: caa9d67c2136edd48b72bbff3abb2117, type: 3}
   _unitTransform: {fileID: 2051248060}
+  _startSpawnTime: 1
+  _endSpawnTime: 5
   _cd: 1
   _radiusOfTown: 40
   _spawnFromTypeTarget: 1

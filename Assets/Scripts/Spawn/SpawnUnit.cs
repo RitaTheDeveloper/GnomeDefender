@@ -6,6 +6,8 @@ public class SpawnUnit : MonoBehaviour
 {
     [SerializeField] private Unit _unitPrefab;
     [SerializeField] private Transform _unitTransform;
+    [SerializeField] private float _startSpawnTime = 1f;
+    [SerializeField] private float _endSpawnTime = 10f;
     [SerializeField] private float _cd;
     [SerializeField] private float _radiusOfTown;
     [SerializeField] private TargetForEnemyType _spawnFromTypeTarget;
@@ -14,6 +16,14 @@ public class SpawnUnit : MonoBehaviour
     private SpawnerController _spawnerController;
 
     private Vector3 _spawnPosition;
+    private bool _isBeginningOfWave;
+    private float _timerForStopSpawn;
+
+    private void Awake()
+    {
+        _isBeginningOfWave = true;
+        _timerForStopSpawn = 0f;
+    }
 
     private void Start()
     {
@@ -24,6 +34,11 @@ public class SpawnUnit : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        _timerForStopSpawn += Time.fixedDeltaTime;
+    }
+
     public void Init(SpawnerController spawnerController)
     {
         _spawnerController = spawnerController;
@@ -32,14 +47,16 @@ public class SpawnUnit : MonoBehaviour
 
     private IEnumerator SpawnOneUnit()
     {
-        while (_target && _spawnerController.CanSpawn())
+        while (_target && _spawnerController.CanSpawn() && _timerForStopSpawn < _endSpawnTime)
         {
-            yield return new WaitForSeconds(_cd);
+            float timeSpawn = SetSpawnTime();
+            yield return new WaitForSeconds(timeSpawn);
             SetPosition();
             var unit = Instantiate(_unitPrefab, _unitTransform);
             unit.transform.position = _spawnPosition;
             unit.GetComponent<Unit>().Init(_spawnerController);
             _spawnerController.IncreaseCounterOfEnemies(1);
+            _isBeginningOfWave = false;
         }
     }
 
@@ -51,5 +68,18 @@ public class SpawnUnit : MonoBehaviour
             _spawnPosition = _target.position + pos;
         }
            
+    }
+
+    private float SetSpawnTime()
+    {
+        if (_isBeginningOfWave)
+        {
+            return _startSpawnTime;
+        }
+        else
+        {
+            //return Random.Range(_minSpawnTime, _maxSpawnTime);
+            return _cd;
+        }
     }
 }
