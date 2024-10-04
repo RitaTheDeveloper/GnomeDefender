@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2324216705123547771}
   - component: {fileID: 2034558446938866766}
   m_Layer: 0
-  m_Name: rangeForEnemy
+  m_Name: RangeForEnemyBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85fa60e6e9d7c5c4792b3088ca11a3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shellprefab: {fileID: 3543597780393946295, guid: 3da6556ac7d062f409a13a5e5a531691, type: 3}
+  shellprefab: {fileID: 3543597780393946295, guid: 61556c7b86b15d0498c1e58c44a8d4bf, type: 3}

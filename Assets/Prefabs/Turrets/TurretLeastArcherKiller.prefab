@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1208353308731511183}
   - component: {fileID: 3463331956388054766}
   m_Layer: 0
-  m_Name: TurretLeastHp
+  m_Name: TurretLeastArcherKiller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6008772154850618692}
@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StartCd>k__BackingField: 0.5
-  <StartDamage>k__BackingField: 1
-  <StartAttackRange>k__BackingField: 8
-  <StartHealth>k__BackingField: 10
+  <StartDamage>k__BackingField: 20
+  <StartAttackRange>k__BackingField: 25
+  <StartMaxHealth>k__BackingField: 0
   <ExpForKill>k__BackingField: 0
 --- !u!114 &1208353308731511183
 MonoBehaviour:
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilitys:
-  - {fileID: 2034558446938866766, guid: 23686a24137f45c408276b0960327706, type: 3}
+  - {fileID: 2034558446938866766, guid: 6740864c999b38e46b5fc15af198d93c, type: 3}
   _targetType: 1
   _layerMask:
     serializedVersion: 2

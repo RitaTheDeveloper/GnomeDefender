@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5261065829321661277}
   - component: {fileID: 2952924810030496219}
   m_Layer: 6
-  m_Name: Enemy1
+  m_Name: BossEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6615418157569754949}
@@ -85,10 +85,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93861e303e115d947bd6c05c6f321ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StartCd>k__BackingField: 1
-  <StartDamage>k__BackingField: 1
-  <StartAttackRange>k__BackingField: 7
-  <StartMaxHealth>k__BackingField: 5
+  <StartCd>k__BackingField: 2
+  <StartDamage>k__BackingField: 100
+  <StartAttackRange>k__BackingField: 15
+  <StartMaxHealth>k__BackingField: 1000
   <ExpForKill>k__BackingField: 5
 --- !u!114 &1847944370295906606
 MonoBehaviour:
@@ -103,16 +103,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilitys:
-  - {fileID: 2034558446938866766, guid: 373e4d150dd9ca34eb95e60614ccfd3c, type: 3}
+  - {fileID: 2034558446938866766, guid: d8b3d81b167eba949b07f1680fb7f138, type: 3}
   _targetType: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 768
   targets:
   - targetType: 0
-    detectionRadius: 10
+    detectionRadius: 0
   - targetType: 1
-    detectionRadius: 20
+    detectionRadius: 100
 --- !u!114 &3737515447362152105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f881b79068fbeb4c8078ac15eecd8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 7
+  _moveSpeed: 5
   _rotationSpeed: 720
 --- !u!114 &5261065829321661277
 MonoBehaviour:
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.7169812, g: 0.11836952, b: 0.11836952, a: 1}
+  m_Color: {r: 1, g: 0.38176292, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

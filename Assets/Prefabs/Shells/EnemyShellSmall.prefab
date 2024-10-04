@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.977548, g: 1, b: 0.3443396, a: 1}
+  m_Color: {r: 0.8207547, g: 0, b: 0.15527773, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6992111680082819410}
   - component: {fileID: 6594850042858956989}
   m_Layer: 0
-  m_Name: Shell
+  m_Name: EnemyShellSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e56c44a6f63754b9e51a34f02a6417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 5
 --- !u!58 &6594850042858956989
 CircleCollider2D:
   m_ObjectHideFlags: 0
