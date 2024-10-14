@@ -10,10 +10,9 @@ public class RangeAttack : Ability
 
     public override void Execute(IAttacker attacker, IDamageable target, LayerMask collisionMask)
     {
-
         Component Target = (Component)target;
         Component Attacker = (Component)attacker;
-        float damage = Attacker.GetComponent<UnitParameters>().CurrentDamage;
+        float damage = Attacker.GetComponent<Unit>().GetDamage();
         direction = Target.transform.position - Attacker.transform.position;
         shell = Instantiate(shellprefab, Attacker.transform.position, Quaternion.identity);
         shell.GetComponent<Shell>().Init(direction, damage, collisionMask);

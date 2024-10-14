@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 2919775194649717774}
   - component: {fileID: 8675552931586893806}
   - component: {fileID: 2040634197969482213}
-  - component: {fileID: 1208353308731511183}
   - component: {fileID: 3463331956388054766}
+  - component: {fileID: 6492064256580229490}
   m_Layer: 0
   m_Name: TurretLeastArcherKiller
   m_TagString: Untagged
@@ -171,25 +171,8 @@ MonoBehaviour:
   <StartDamage>k__BackingField: 20
   <StartAttackRange>k__BackingField: 25
   <StartMaxHealth>k__BackingField: 0
+  <StartRegenerationHealth>k__BackingField: 0
   <ExpForKill>k__BackingField: 0
---- !u!114 &1208353308731511183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637483444521596003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abbdfdd08b5b518468413aeabf7187bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _abilitys:
-  - {fileID: 2034558446938866766, guid: 6740864c999b38e46b5fc15af198d93c, type: 3}
-  _targetType: 1
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &3463331956388054766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +185,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bea7e3a38ee9004e9a01c80757c1951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6492064256580229490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637483444521596003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8274dcad8f442e743b9be989758fdd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilitys:
+  - {fileID: 2034558446938866766, guid: 6740864c999b38e46b5fc15af198d93c, type: 3}
+  _targetType: 1
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64

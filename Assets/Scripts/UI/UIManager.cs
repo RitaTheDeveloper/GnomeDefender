@@ -10,8 +10,6 @@ public class UIManager : MonoBehaviour
 
     private TimeController _timeController;
 
-
-
     private void OnEnable()
     {
         _gameManager.onLose += Lose;
@@ -26,6 +24,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         _timeController = _gameManager.GetComponent<TimeController>();
+        _uiGameMenu.Init(_gameManager.Player.GetComponent<GnomeController>());
     }
 
     private void Start()

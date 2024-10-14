@@ -41,7 +41,7 @@ public class Unit : MonoBehaviour, IAttacker
     {
         _timer += Time.fixedDeltaTime;
         FindObject findObject = new FindObject();
-        _target = findObject.FindTarget(_targetType, this.transform.position, _unitParameters.StartAttackRange, _layerMask);
+        _target = findObject.FindTarget(_targetType, this.transform.position, _unitParameters.CurrentAttackRange, _layerMask);
 
         if (_timer > _unitParameters.StartCd && _target)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
             Attack();
@@ -53,9 +53,9 @@ public class Unit : MonoBehaviour, IAttacker
         UseAbility(_target.GetComponent<IDamageable>(), 0);
     }
 
-    public float GetDamage()
+    public virtual float GetDamage()
     {
-        throw new System.NotImplementedException();
+        return _unitParameters.CurrentDamage;
     }
 
     public void SetTarget(GameObject target)

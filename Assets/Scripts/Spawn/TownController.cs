@@ -7,6 +7,8 @@ public class TownController : MonoBehaviour
     [SerializeField] private Transform[] turretHolders;
     [SerializeField] private GameObject[] turretPrefabs;
 
+    public List<TurretController> Turrets { get; private set; } = new List<TurretController>();
+
     private void Start()
     {
         CreateTurrets();
@@ -19,7 +21,10 @@ public class TownController : MonoBehaviour
             int randIndex = Random.Range(0, turretPrefabs.Length);
             GameObject turret = Instantiate(turretPrefabs[randIndex], holder.position, holder.rotation);
             turret.transform.parent = holder;
-
+            TurretController turretController = turret.GetComponent<TurretController>();
+            Turrets.Add(turretController);
+            turretController.Init(GetComponent<UnitParameters>());
         }
     }
+
 }

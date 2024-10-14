@@ -18,7 +18,9 @@ public class Shell : MonoBehaviour
     void Update()
     {
         CheckCollsion(5f * Time.deltaTime);
-
+    }
+    private void FixedUpdate()
+    {        
         transform.Translate(_direction * Time.deltaTime * _speed);
     }
 

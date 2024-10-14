@@ -7,26 +7,33 @@ public class Health : MonoBehaviour, IDamageable
 {
     public Action onDead;
 
-    private float _startHealth;
-    private float _currentHealth;
     private UnitParameters _unitParameters;
 
-    public float CurrentHealth { get => _currentHealth; }
-    public float StartHealth { get => _startHealth; set => _startHealth = value; }
+    public float StartHealth { get => _unitParameters.CurrentMaxHealth; set => _unitParameters.CurrentMaxHealth = value; }
+    public float CurrentHealth { get; private set; }
+    public bool IsAlive { get; private set; } = true;
 
     private void Start()
     {
         _unitParameters = GetComponent<UnitParameters>();
-        _startHealth = _unitParameters.StartMaxHealth;
-        _currentHealth = _startHealth;
+        StartHealth = _unitParameters.StartMaxHealth;
+        CurrentHealth = StartHealth;
+    }
+    private void FixedUpdate()
+    {
+        if (IsAlive)
+        {
+            CurrentHealth = Math.Min(CurrentHealth + _unitParameters.CurrentRegenerationHealth * Time.fixedDeltaTime, StartHealth);
+        }
     }
 
     public void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
+        CurrentHealth -= damage;
         
-        if(_currentHealth <= 0f)
+        if(CurrentHealth <= 0f)
         {
+            IsAlive = false;
             Die();
         }
     }
@@ -39,6 +46,6 @@ public class Health : MonoBehaviour, IDamageable
 
     public void UpdateMaxHP()
     {
-        _startHealth = _unitParameters.CurrentMaxHealth;
+        StartHealth = _unitParameters.CurrentMaxHealth;
     }
 }
