@@ -15,9 +15,9 @@ public class TimeController : MonoBehaviour
 
     private void Start()
     {
-        _currentTime = time;
-        _stopTime = false;
+        Init();
     }
+
 
     private void FixedUpdate()
     {
@@ -25,6 +25,12 @@ public class TimeController : MonoBehaviour
         {
             CountingTime();
         }
+    }
+
+    public void Init()
+    {
+        _currentTime = time;
+        _stopTime = false;
     }
 
     private void CountingTime()

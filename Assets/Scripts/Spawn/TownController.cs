@@ -11,6 +11,11 @@ public class TownController : MonoBehaviour
 
     private void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         CreateTurrets();
     }
 
