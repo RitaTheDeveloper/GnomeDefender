@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StartAttackSpeed>k__BackingField: 2
-  <StartDamage>k__BackingField: 20
+  <StartDamage>k__BackingField: 10
   <StartAttackRange>k__BackingField: 25
   <StartMaxHealth>k__BackingField: 0
   <StartRegenerationHealth>k__BackingField: 0

@@ -873,15 +873,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _perkConfigs:
-  - {fileID: 11400000, guid: 8165ec3c282a2e0439176c2b259885f3, type: 2}
-  - {fileID: 11400000, guid: f494f7b746872454f951cf2265041367, type: 2}
-  - {fileID: 11400000, guid: 5f4e2f2f1de1aa648a7262cbd0c3be79, type: 2}
-  - {fileID: 11400000, guid: 5f4e2f2f1de1aa648a7262cbd0c3be79, type: 2}
-  - {fileID: 11400000, guid: 6c8697c2afd59a547b082324d444760e, type: 2}
-  - {fileID: 11400000, guid: 6c8697c2afd59a547b082324d444760e, type: 2}
-  - {fileID: 11400000, guid: 6c8697c2afd59a547b082324d444760e, type: 2}
-  - {fileID: 11400000, guid: 6c8697c2afd59a547b082324d444760e, type: 2}
-  - {fileID: 11400000, guid: 6c8697c2afd59a547b082324d444760e, type: 2}
+  - {fileID: 11400000, guid: 096ee8ff96cac5e489c9985c18b842b6, type: 2}
+  - {fileID: 11400000, guid: 096ee8ff96cac5e489c9985c18b842b6, type: 2}
+  - {fileID: 11400000, guid: 096ee8ff96cac5e489c9985c18b842b6, type: 2}
+  - {fileID: 11400000, guid: 756b53023fe2420409d2458a1ef3a207, type: 2}
+  - {fileID: 11400000, guid: 756b53023fe2420409d2458a1ef3a207, type: 2}
+  - {fileID: 11400000, guid: 756b53023fe2420409d2458a1ef3a207, type: 2}
+  - {fileID: 11400000, guid: 88b826c72497eda4792671f9b1bedf36, type: 2}
+  - {fileID: 11400000, guid: 88b826c72497eda4792671f9b1bedf36, type: 2}
+  - {fileID: 11400000, guid: 88b826c72497eda4792671f9b1bedf36, type: 2}
+  - {fileID: 11400000, guid: 0a8a8d1574b1c284bb339f8e16ea26dd, type: 2}
+  - {fileID: 11400000, guid: 0a8a8d1574b1c284bb339f8e16ea26dd, type: 2}
+  - {fileID: 11400000, guid: 0a8a8d1574b1c284bb339f8e16ea26dd, type: 2}
+  - {fileID: 11400000, guid: e7772f4e6dceabf429be9852f583151e, type: 2}
+  - {fileID: 11400000, guid: e7772f4e6dceabf429be9852f583151e, type: 2}
+  - {fileID: 11400000, guid: e7772f4e6dceabf429be9852f583151e, type: 2}
+  - {fileID: 11400000, guid: e260ab9faa6aae84ab8c85412350992b, type: 2}
+  - {fileID: 11400000, guid: e260ab9faa6aae84ab8c85412350992b, type: 2}
+  - {fileID: 11400000, guid: e260ab9faa6aae84ab8c85412350992b, type: 2}
+  - {fileID: 11400000, guid: bea4974417664174fa43776aa4f72be6, type: 2}
+  - {fileID: 11400000, guid: bea4974417664174fa43776aa4f72be6, type: 2}
+  - {fileID: 11400000, guid: bea4974417664174fa43776aa4f72be6, type: 2}
+  - {fileID: 11400000, guid: 4b418a9f66463c948b636048b8eb34dd, type: 2}
+  - {fileID: 11400000, guid: 87bb60abe689ab44e9761aa924a80f3c, type: 2}
+  - {fileID: 11400000, guid: d010a7a513fb63643b2d4ec0e87329a8, type: 2}
+  - {fileID: 11400000, guid: f694f2d3536fa064cb092034f9a1d004, type: 2}
+  - {fileID: 11400000, guid: b835aaf07b201924581e716fec1d3410, type: 2}
+  - {fileID: 11400000, guid: da7bc8d3dc75eb4459d26e8bae6dbd47, type: 2}
+  - {fileID: 11400000, guid: 751e6e474512bcc4faf633c79ab5b537, type: 2}
   _numberOfProposedPerks: 3
 --- !u!4 &278753754
 Transform:
@@ -6737,7 +6756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 355342283650313215, guid: eecfb481d98fce24a83e35a88339d3da, type: 3}
       propertyPath: <StartMaxHealth>k__BackingField
-      value: 2000
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2761629449313762539, guid: eecfb481d98fce24a83e35a88339d3da, type: 3}
       propertyPath: uiHealth

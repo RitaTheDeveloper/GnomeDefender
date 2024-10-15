@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93861e303e115d947bd6c05c6f321ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StartAttackSpeed>k__BackingField: 1.5
-  <StartDamage>k__BackingField: 2
+  <StartAttackSpeed>k__BackingField: 8
+  <StartDamage>k__BackingField: 3
   <StartAttackRange>k__BackingField: 10
   <StartMaxHealth>k__BackingField: 0
   <StartRegenerationHealth>k__BackingField: 0
