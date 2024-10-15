@@ -8,9 +8,16 @@ public class UIPerkController : MonoBehaviour
     [SerializeField] private Transform _panelOfProposedPerks;
     [SerializeField] private GameObject _proposedPerkPrefab;
 
+    private GameManager _gameManager;
+
     private void Start()
     {
         CreateProposedPerks(_perkStorage.GetProposedPerksList());
+    }
+
+    public void Init(GameManager gameManager)
+    {
+        _gameManager = gameManager;
     }
 
     public void CreateProposedPerks(List<Perk> perks)
@@ -34,5 +41,6 @@ public class UIPerkController : MonoBehaviour
     public void ClosePerkMenu()
     {
         this.gameObject.SetActive(false);
+        _gameManager.GetComponent<TimeController>().ContinueTime();
     }
 }

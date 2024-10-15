@@ -85,10 +85,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93861e303e115d947bd6c05c6f321ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StartCd>k__BackingField: 1
+  <StartAttackSpeed>k__BackingField: 1
   <StartDamage>k__BackingField: 1
   <StartAttackRange>k__BackingField: 7
   <StartMaxHealth>k__BackingField: 20
+  <StartRegenerationHealth>k__BackingField: 0
   <ExpForKill>k__BackingField: 1
 --- !u!114 &1847944370295906606
 MonoBehaviour:

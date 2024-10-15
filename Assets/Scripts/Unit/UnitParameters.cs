@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class UnitParameters : MonoBehaviour
 {
-    [field: SerializeField] public float StartCd { get; set; }
+    [Tooltip("кол-во атак в секунду")]
+    [field: SerializeField] public float StartAttackSpeed { get; set; }
     [field: SerializeField] public float StartDamage { get; set; }
     [field: SerializeField] public float StartAttackRange { get; set; }
     [field: SerializeField] public float StartMaxHealth { get; set; }
@@ -15,6 +16,7 @@ public class UnitParameters : MonoBehaviour
     public float CurrentDamage { get; set; }
     public float CurrentRegenerationHealth { get; set; }
     public float CurrentAttackRange { get; set; }
+    public float CurrentAttackSpeed { get; set; }
 
     private void Start()
     {
@@ -22,5 +24,6 @@ public class UnitParameters : MonoBehaviour
         CurrentDamage = StartDamage;
         CurrentRegenerationHealth = StartRegenerationHealth;
         CurrentAttackRange = StartAttackRange;
+        CurrentAttackSpeed = StartAttackSpeed;
     }
 }

@@ -13,7 +13,6 @@ public class TurretController : Unit
 
     public override float GetDamage()
     {
-        Debug.Log("damage = " + (_townUnitParameters.CurrentDamage + _unitParameters.CurrentDamage));
         return (_townUnitParameters.CurrentDamage + _unitParameters.CurrentDamage);
     }
 }  

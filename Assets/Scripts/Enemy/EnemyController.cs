@@ -51,7 +51,7 @@ public class EnemyController : Unit
     {
         _timer += Time.fixedDeltaTime;
 
-        if (_timer > _unitParameters.StartCd && _target && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.StartAttackRange)
+        if (_timer > 1f /_unitParameters.CurrentAttackSpeed && _target && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.CurrentAttackRange)
         {
             Attack();
             _enemyMovement.StopMove = true;

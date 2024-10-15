@@ -8,6 +8,7 @@ public class UIGameMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timeTxt;
     [SerializeField] private UIPerkController _uiPerkController;
     private GnomeController _player;
+    private GameManager _gameManager;
     private Color _startTimeColor;
 
     private void Awake()
@@ -24,13 +25,18 @@ public class UIGameMenu : MonoBehaviour
     }
     private void OnDisable()
     {
-        _player.GetComponent<PlayerLevelController>().onLevelUp -= OfferPerks;
+        if (_player)
+        {
+            _player.GetComponent<PlayerLevelController>().onLevelUp -= OfferPerks;
+        }        
     }
 
-    public void Init(GnomeController player)
+    public void Init(GnomeController player, GameManager gameManager)
     {
         _player = player;
         _player.GetComponent<PlayerLevelController>().onLevelUp += OfferPerks;
+        _gameManager = gameManager;
+        _uiPerkController.Init(_gameManager);
     }
 
     public void ShowTime(float currentTime)
@@ -52,5 +58,6 @@ public class UIGameMenu : MonoBehaviour
     public void OfferPerks()
     {
         _uiPerkController.gameObject.SetActive(true);
+        _gameManager.GetComponent<TimeController>().StopTime();
     }
 }

@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         _timeController = _gameManager.GetComponent<TimeController>();
-        _uiGameMenu.Init(_gameManager.Player.GetComponent<GnomeController>());
+        _uiGameMenu.Init(_gameManager.Player.GetComponent<GnomeController>(), _gameManager);
     }
 
     private void Start()

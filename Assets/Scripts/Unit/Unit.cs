@@ -43,7 +43,7 @@ public class Unit : MonoBehaviour, IAttacker
         FindObject findObject = new FindObject();
         _target = findObject.FindTarget(_targetType, this.transform.position, _unitParameters.CurrentAttackRange, _layerMask);
 
-        if (_timer > _unitParameters.StartCd && _target)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
+        if (_timer >= 1f / _unitParameters.CurrentAttackSpeed && _target)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
             Attack();
     }
 
