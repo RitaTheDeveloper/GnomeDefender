@@ -42,5 +42,6 @@ public class UIPerkController : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         _gameManager.GetComponent<TimeController>().ContinueTime();
+        CreateProposedPerks(_perkStorage.GetProposedPerksList());
     }
 }
