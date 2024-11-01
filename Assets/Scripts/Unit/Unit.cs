@@ -43,14 +43,17 @@ public class Unit : MonoBehaviour, IAttacker
         FindObject findObject = new FindObject();
         _target = findObject.FindTarget(_targetType, this.transform.position, _unitParameters.CurrentAttackRange, _layerMask);
 
-        if (_timer >= 1f / _unitParameters.CurrentAttackSpeed && _target)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
+        if (_target && _timer >= 1f / _unitParameters.CurrentAttackSpeed)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
             Attack();
     }
 
     public void Attack()
     {
-        _timer = 0f;        
-        UseAbility(_target.GetComponent<IDamageable>(), 0);
+        _timer = 0f;   
+        if (_target != null)
+        {
+            UseAbility(_target.GetComponent<IDamageable>(), 0);
+        }        
     }
 
     public virtual float GetDamage()

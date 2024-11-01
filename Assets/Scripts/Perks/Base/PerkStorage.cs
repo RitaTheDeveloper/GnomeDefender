@@ -10,7 +10,7 @@ public class PerkStorage : MonoBehaviour
 
     private void Awake()
     {
-        Init();
+       // Init();
     }
 
     public void Init()

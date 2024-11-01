@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private SpawnerController _spawnerController;
     [SerializeField] private TimeController _timeController;
+    [SerializeField] private TownGenerator _townGenerator;
+    [SerializeField] private PerkStorage _perkStorage;
 
     private bool _isGameOver;
     public GameObject Town { get => _town; set => _town = value; }
@@ -50,11 +52,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Init();
+        //Init();
     }
 
     public void Init()
-    {        
+    {
+        SpawnTown();
+        _perkStorage.Init();
+        _timeController.Init();
         _spawnerController.Init(this);
     }
     public void Win()
@@ -68,5 +73,17 @@ public class GameManager : MonoBehaviour
         onLose.Invoke();
         _timeController.StopTime();
         _isGameOver = true;
+    }
+
+    private void SpawnTown()
+    {
+        Town = _townGenerator.GetSelectedTown().gameObject;
+        //Town = Instantiate(Town, transform.position, Quaternion.identity);
+        Town.transform.position = transform.position;
+        Town.GetComponent<TownController>().ActivateTurrets();
+        if (Town)
+        {
+            Town.GetComponent<Health>().onDead += Lose;
+        }
     }
 }

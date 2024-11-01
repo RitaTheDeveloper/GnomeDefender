@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AddBaseParameterPerk : Perk
 {
-    public float Value { get; private set; }
     private UnitParameters _targetParameters;
     private UnitParameterType _parameterType;
     public AddBaseParameterPerk(TargetForEnemyType target, UnitParameterType parameterType, float value)

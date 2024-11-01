@@ -11,7 +11,7 @@ public class TownController : MonoBehaviour
 
     private void Start()
     {
-        Init();
+       // Init();
     }
 
     public void Init()
@@ -28,7 +28,15 @@ public class TownController : MonoBehaviour
             turret.transform.parent = holder;
             TurretController turretController = turret.GetComponent<TurretController>();
             Turrets.Add(turretController);
-            turretController.Init(GetComponent<UnitParameters>());
+           // turretController.Init(GetComponent<UnitParameters>());
+        }
+    }
+
+    public void ActivateTurrets()
+    {
+        foreach (var turret in Turrets)
+        {
+            turret.Init(GetComponent<UnitParameters>());
         }
     }
 

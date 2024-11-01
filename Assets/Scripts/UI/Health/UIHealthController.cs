@@ -9,6 +9,20 @@ public class UIHealthController : MonoBehaviour
 
     private void Update()
     {
-        uiHealth.DisplayHealth((int)health.StartHealth, (int)health.CurrentHealth);
+        if (uiHealth)
+        {
+            uiHealth.DisplayHealth((int)health.StartHealth, (int)health.CurrentHealth);
+        }
+    }
+
+    public void Init(UIHealth uIHealth)
+    {
+        this.uiHealth = uIHealth;
+    }
+
+    private void OnDestroy()
+    {
+        if (uiHealth)
+            uiHealth.DisplayHealth((int)health.StartHealth, 0);
     }
 }

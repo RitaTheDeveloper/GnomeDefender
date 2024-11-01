@@ -7,6 +7,7 @@ public class UIGameMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timeTxt;
     [SerializeField] private UIPerkController _uiPerkController;
+    [SerializeField] UIHealth _uIHealthOfTown;
     private GnomeController _player;
     private GameManager _gameManager;
     private Color _startTimeColor;
@@ -31,11 +32,12 @@ public class UIGameMenu : MonoBehaviour
         }        
     }
 
-    public void Init(GnomeController player, GameManager gameManager)
+    public void Init(GnomeController player, TownController town, GameManager gameManager)
     {
         _player = player;
         _player.GetComponent<PlayerLevelController>().onLevelUp += OfferPerks;
         _gameManager = gameManager;
+        town.GetComponent<UIHealthController>().Init(_uIHealthOfTown);
         _uiPerkController.Init(_gameManager);
     }
 

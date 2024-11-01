@@ -9,13 +9,13 @@ public class TimeController : MonoBehaviour
     public float time;
 
     private float _currentTime;
-    private bool _stopTime;
+    private bool _stopTime = true;
 
     public float CurrentTime { get => _currentTime; }
 
     private void Start()
     {
-        Init();
+        //Init();
     }
 
 

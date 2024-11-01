@@ -8,7 +8,7 @@ public class PerkConfig : ScriptableObject
     [field: SerializeField] public string Description { get; private set; }
     [field: SerializeField] public Sprite Icon { get; private set; }
 
-    [field: SerializeField] public float Value { get; private set; }
+    [field: SerializeField] public float Value { get; protected set; }
     public Perk _perk { get; private set; }
 
     public virtual void Init()

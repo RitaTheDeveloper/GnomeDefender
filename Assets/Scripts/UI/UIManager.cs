@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private UIWinAndLose _uIWinAndLose;
     [SerializeField] private UIGameMenu _uiGameMenu;
+    [SerializeField] private UISelectionMenu _uISelectionMenu;
+    [SerializeField] private CameraController _cameraController;
 
     private TimeController _timeController;
 
@@ -23,18 +25,25 @@ public class UIManager : MonoBehaviour
     }
     private void Awake()
     {
-        _timeController = _gameManager.GetComponent<TimeController>();
-        _uiGameMenu.Init(_gameManager.Player.GetComponent<GnomeController>(), _gameManager);
+       
     }
 
     private void Start()
     {
         AllOff();
+        _uISelectionMenu.gameObject.SetActive(true);
+        _uISelectionMenu.Init(this);
+
+       // GameMenuOn();
     }
 
     private void FixedUpdate()
     {
-        _uiGameMenu.ShowTime(_timeController.CurrentTime);
+        if (_uiGameMenu.isActiveAndEnabled)
+        {
+            _uiGameMenu.ShowTime(_timeController.CurrentTime);
+        }
+        
     }
 
     public void Lose()
@@ -52,5 +61,18 @@ public class UIManager : MonoBehaviour
     private void AllOff()
     {
         _uIWinAndLose.gameObject.SetActive(false);
+        _uISelectionMenu.gameObject.SetActive(false);
+        _uiGameMenu.gameObject.SetActive(false);
+    }
+
+    public void GameMenuOn()
+    {
+        AllOff();
+        _uiGameMenu.gameObject.SetActive(true);
+        _timeController = _gameManager.GetComponent<TimeController>();
+        _gameManager.Init();
+        _uiGameMenu.Init(_gameManager.Player.GetComponent<GnomeController>(), _gameManager.Town.GetComponent<TownController>(), _gameManager);
+        _cameraController.SetTarget(_gameManager.Player.transform);
+
     }
 }

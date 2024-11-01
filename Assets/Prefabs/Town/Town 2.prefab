@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.19335172, g: 0.3152472, b: 0.5188679, a: 1}
+  m_Color: {r: 0.5004897, g: 0.19215685, b: 0.5176471, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 7851893866706735056}
   - component: {fileID: 107576859647138675}
   m_Layer: 8
-  m_Name: Town
+  m_Name: Town 2
   m_TagString: Town
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   <StartAttackSpeed>k__BackingField: 0
   <StartDamage>k__BackingField: 0
   <StartAttackRange>k__BackingField: 0
-  <StartMaxHealth>k__BackingField: 100
+  <StartMaxHealth>k__BackingField: 150
   <StartRegenerationHealth>k__BackingField: 0
   <ExpForKill>k__BackingField: 0
 --- !u!114 &1045830916501777213

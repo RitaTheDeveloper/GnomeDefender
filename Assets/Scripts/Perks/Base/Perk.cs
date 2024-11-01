@@ -8,7 +8,7 @@ public class Perk
     public string Description { get; private set; }
     public Sprite Icon { get; private set; }
 
-    public float Value { get; private set; }
+    public float Value { get; protected set; }
 
     public void SetDescription(string title, string description, Sprite iconSprite, float value)
     {
