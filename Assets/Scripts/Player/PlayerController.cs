@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
-        _rb.velocity = _rb.velocity = new Vector2(moveHorizontal * _speed, moveVertical * _speed);
+        _rb.velocity = new Vector2(moveHorizontal * _speed, moveVertical * _speed);
 
         if (moveHorizontal > 0.01f)
             _spriteRenderer.flipX = false;

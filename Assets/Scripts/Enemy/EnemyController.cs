@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyController : Unit
 {
+    public Action OnAttack;
+
     [SerializeField] private TargetTypeAndDetectionRadius[] targets;
     //private GameObject _currentTarget = null;
     private EnemyMovement _enemyMovement;
@@ -30,7 +33,8 @@ public class EnemyController : Unit
     private void Start()
     {
         _targetPlayer = _spawnerController.GetTarget(TargetForEnemyType.Player);
-        _playerSM = _targetPlayer.GetComponent<GnomeSM>();
+        if (_targetPlayer)
+            _playerSM = _targetPlayer.GetComponent<GnomeSM>();
         _targetTown = _spawnerController.GetTarget(TargetForEnemyType.Town);
         DefineTarget();
         _enemyMovement = GetComponent<EnemyMovement>();
@@ -81,5 +85,11 @@ public class EnemyController : Unit
     private void Die()
     {
         Actions.OnEnemyKilled(_unitParameters.ExpForKill);
+    }
+
+    public override void Attack()
+    {
+        OnAttack.Invoke();
+        base.Attack();
     }
 }

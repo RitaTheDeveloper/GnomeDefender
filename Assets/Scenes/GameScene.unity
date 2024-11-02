@@ -833,12 +833,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxNumberOfEnemies: 1000
   _listOfEnemySpawners:
-  - {fileID: 27960483}
-  - {fileID: 678006019}
-  - {fileID: 69248358}
-  - {fileID: 2096248540}
-  - {fileID: 1797405381}
-  - {fileID: 238349271}
+  - {fileID: 2051248059}
+  - {fileID: 2051248059}
+  - {fileID: 2051248059}
+  - {fileID: 2051248059}
+  - {fileID: 2051248059}
+  - {fileID: 2051248059}
+  - {fileID: 2051248059}
 --- !u!4 &264618285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3637929831235278349, guid: caa9d67c2136edd48b72bbff3abb2117, type: 3}
@@ -3823,7 +3824,7 @@ MonoBehaviour:
   <StartAttackSpeed>k__BackingField: 2.79
   <StartDamage>k__BackingField: 10
   <StartAttackRange>k__BackingField: 10
-  <StartMaxHealth>k__BackingField: 30
+  <StartMaxHealth>k__BackingField: 50
   <StartRegenerationHealth>k__BackingField: 3
   <ExpForKill>k__BackingField: 0
 --- !u!114 &1114801564
@@ -5551,7 +5552,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.37900499, g: 0.45156714, b: 0.4811321, a: 1}
+  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.43347278, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7553,7 +7554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5050ab4c85d68724fa87440e9e25b05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 1847944370295906606, guid: caa9d67c2136edd48b72bbff3abb2117, type: 3}
+  _unitPrefab: {fileID: 6457298724524118817, guid: 03a16f7d016a8f14bab62ce7c8802f62, type: 3}
   _unitTransform: {fileID: 2051248060}
   _startSpawnTime: 1
   _endSpawnTime: 55

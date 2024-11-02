@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         Town = _townGenerator.GetSelectedTown().gameObject;
         //Town = Instantiate(Town, transform.position, Quaternion.identity);
         Town.transform.position = transform.position;
-        Town.GetComponent<TownController>().ActivateTurrets();
+        //Town.GetComponent<TownController>().ActivateTurrets();
         if (Town)
         {
             Town.GetComponent<Health>().onDead += Lose;

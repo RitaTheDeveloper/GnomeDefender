@@ -47,7 +47,7 @@ public class Unit : MonoBehaviour, IAttacker
             Attack();
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         _timer = 0f;   
         if (_target != null)

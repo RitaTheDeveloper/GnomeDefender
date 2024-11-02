@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private bool _stopMove;
 
     GameObject target;
-
+    public Vector2 Direction { get; private set; }
     private EnemyController enemycontroller;
 
     public bool StopMove { get => _stopMove; set => _stopMove = value; }
@@ -68,10 +68,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (target)
         {
-            Vector2 direction = target.transform.position - transform.position;
-            direction.Normalize();
-            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
+            Direction = target.transform.position - transform.position;
+            Direction.Normalize();
+            //Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, Direction);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
         }
         
     }
