@@ -44,7 +44,9 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnim()
     {
-        _animator.SetFloat("velocityX", Mathf.Abs(_rb.velocity.x));
+        Debug.Log(_rb.velocity.y);
+        _animator.SetFloat("velocityX", Mathf.Abs(_rb.velocity.x));       
+        _animator.SetFloat("velocityY", Mathf.Abs(_rb.velocity.y));
     }
 
     private void Attack()

@@ -59,6 +59,7 @@ public class TimeController : MonoBehaviour
 
     public void ContinueTime()
     {
+        _stopTime = false;
         Time.timeScale = 1f;
     }
 }
