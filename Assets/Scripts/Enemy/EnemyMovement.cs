@@ -6,28 +6,32 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private float _patrolRadius;
 
     Collider2D myCol;
     Collider2D targetCol;
     private float _speed;
-    private bool _stopMove;
 
     GameObject target;
-    public Vector2 Direction { get; private set; }
-    private EnemyController enemycontroller;
+    public Vector2 Direction { get; private set; }    
+    public bool StopMove { get; set; }
 
-    public bool StopMove { get => _stopMove; set => _stopMove = value; }
+    private Vector2[] _pointsForPatrol = new Vector2[2];
+    private int _currentWaypointIndex;
 
     private void Awake()
     {
         myCol = GetComponent<Collider2D>();
-       // enemycontroller.GetComponent<EnemyController>();
+        
     }
 
     private void Start()
     {
+        _pointsForPatrol[0] = transform.position;
+        _pointsForPatrol[1] = GetPointOfPatrol();
+
         _speed = _moveSpeed;
-        _stopMove = false;
+        StopMove = false;
 
         if (target)
         {
@@ -37,13 +41,35 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //if (target)
+        //{
+        //    targetCol = target.gameObject.GetComponent<Collider2D>();
+        //}
 
+        //if (target != null && !StopMove)
+        //{
+        //    ColliderDistance2D distance = myCol.Distance(targetCol);
+        //    if (!distance.isOverlapped)
+        //    {
+        //        MoveTowardsTarget();
+        //        RotateTowardsTarget();
+        //    }
+        //}
+        //else
+        //{
+        //    Patrol();
+        //}
+        
+    }
+
+    public void FollowForTarget()
+    {
         if (target)
         {
             targetCol = target.gameObject.GetComponent<Collider2D>();
         }
 
-        if (target != null && !_stopMove)
+        if (target != null && !StopMove)
         {
             ColliderDistance2D distance = myCol.Distance(targetCol);
             if (!distance.isOverlapped)
@@ -52,7 +78,6 @@ public class EnemyMovement : MonoBehaviour
                 RotateTowardsTarget();
             }
         }
-
     }
 
     private void MoveTowardsTarget()
@@ -73,6 +98,11 @@ public class EnemyMovement : MonoBehaviour
             //Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, Direction);
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.deltaTime);
         }
+        else
+        {
+            Direction = _pointsForPatrol[_currentWaypointIndex] - (Vector2)transform.position;
+            Direction.Normalize();
+        }
         
     }
 
@@ -80,6 +110,26 @@ public class EnemyMovement : MonoBehaviour
     public void SetTarget(GameObject target)
     {
         this.target = target;
+    }
+
+    public void Patrol()
+    {
+        Vector2 wayPoint = _pointsForPatrol[_currentWaypointIndex];
+        if (Vector2.Distance(transform.position, wayPoint) < 0.01f)
+        {
+            _currentWaypointIndex = (_currentWaypointIndex + 1) % _pointsForPatrol.Length;
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, wayPoint, _speed * Time.deltaTime);
+        }
+
+        RotateTowardsTarget();
+    }
+
+    private Vector2 GetPointOfPatrol()
+    {
+        return (Vector2)transform.position + Random.insideUnitCircle.normalized * _patrolRadius;
     }
     
 }

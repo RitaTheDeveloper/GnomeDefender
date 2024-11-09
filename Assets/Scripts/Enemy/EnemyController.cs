@@ -13,11 +13,13 @@ public class EnemyController : Unit
     private Health _enemyHealth;
     GameObject _targetPlayer, _targetTown;
     GnomeSM _playerSM;
+    EnemySM _enemySM;
 
     protected override void Awake()
     {
         base.Awake();
-        _enemyHealth = GetComponent<Health>();     
+        _enemyHealth = GetComponent<Health>();
+        _enemySM = GetComponent<EnemySM>();
     }
 
     private void OnEnable()
@@ -38,24 +40,29 @@ public class EnemyController : Unit
         _targetTown = _spawnerController.GetTarget(TargetForEnemyType.Town);
         DefineTarget();
         _enemyMovement = GetComponent<EnemyMovement>();
-        if (_target)
+        if (Target)
         {
-            _enemyMovement.SetTarget(_target);
-            SetTarget(_target);
+            _enemyMovement.SetTarget(Target);
+            SetTarget(Target);
         }
+    }
+
+    protected override void FixedUpdate()
+    {
+        //base.FixedUpdate();
     }
 
     private void Update()
     {
         DefineTarget();
-        _enemyMovement.SetTarget(_target);
+        _enemyMovement.SetTarget(Target);
     }
 
     public override void Attacking()
     {
         _timer += Time.fixedDeltaTime;
 
-        if (_timer > 1f /_unitParameters.CurrentAttackSpeed && _target && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.CurrentAttackRange)
+        if (_timer > 1f /_unitParameters.CurrentAttackSpeed && Target && Vector2.Distance(transform.position, Target.transform.position) < _unitParameters.CurrentAttackRange)
         {
             Attack();
             _enemyMovement.StopMove = true;
@@ -70,15 +77,18 @@ public class EnemyController : Unit
     {
         if (_targetPlayer  && _playerSM.CurrentState == _playerSM.KillerState && Vector2.Distance(transform.position, _targetPlayer.transform.position) <= targets[0].detectionRadius)
         {
-            _target = _targetPlayer;
+            Target = _targetPlayer;
+            _enemySM.ChangeState(_enemySM.HunterState);
         }
         else if (_targetTown && Vector2.Distance(transform.position, _targetTown.transform.position) <= targets[1].detectionRadius)
         {
-            _target = _targetTown;
+            Target = _targetTown;
+            _enemySM.ChangeState(_enemySM.HunterState);
         }
         else
         {
-            _target = null;
+            Target = null;
+            _enemySM.ChangeState(_enemySM.PatrolState);
         }
     }
 

@@ -9,7 +9,7 @@ public class SpawnUnit : MonoBehaviour
     [SerializeField] private float _startSpawnTime = 1f;
     [SerializeField] private float _endSpawnTime = 10f;
     [SerializeField] private float _cd;
-    [SerializeField] private float _radiusOfTown;
+    [SerializeField] private float _radiusOfSpawnPoint;
     [SerializeField] private SpawnPointType _spawnFromPointType;
     [SerializeField] private Transform _spawnFromPointTransform;
     private Transform _spawnPoint;
@@ -66,7 +66,7 @@ public class SpawnUnit : MonoBehaviour
     {
         if (_spawnPoint)
         {
-            Vector3 pos = new Vector3(Random.Range(-_radiusOfTown, _radiusOfTown), Random.Range(-_radiusOfTown, _radiusOfTown), 0f);
+            Vector3 pos = new Vector3(Random.Range(-_radiusOfSpawnPoint, _radiusOfSpawnPoint), Random.Range(-_radiusOfSpawnPoint, _radiusOfSpawnPoint), 0f);
             _spawnPosition = _spawnPoint.position + pos;
         }
            

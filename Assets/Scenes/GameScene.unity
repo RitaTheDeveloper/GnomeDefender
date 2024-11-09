@@ -255,7 +255,7 @@ MonoBehaviour:
   _startSpawnTime: 1
   _endSpawnTime: 100
   _cd: 0.8
-  _radiusOfTown: 60
+  _radiusOfSpawnPoint: 0
   _spawnFromPointType: 2
   _spawnFromPointTransform: {fileID: 0}
 --- !u!224 &32382709 stripped
@@ -312,7 +312,7 @@ MonoBehaviour:
   _startSpawnTime: 30
   _endSpawnTime: 100
   _cd: 1.5
-  _radiusOfTown: 100
+  _radiusOfSpawnPoint: 0
   _spawnFromPointType: 2
   _spawnFromPointTransform: {fileID: 0}
 --- !u!1 &71900393
@@ -623,7 +623,7 @@ MonoBehaviour:
   _startSpawnTime: 1
   _endSpawnTime: 5
   _cd: 3
-  _radiusOfTown: 60
+  _radiusOfSpawnPoint: 0
   _spawnFromPointType: 2
   _spawnFromPointTransform: {fileID: 0}
 --- !u!1 &238349269
@@ -675,7 +675,7 @@ MonoBehaviour:
   _startSpawnTime: 60
   _endSpawnTime: 60
   _cd: 5
-  _radiusOfTown: 50
+  _radiusOfSpawnPoint: 0
   _spawnFromPointType: 2
   _spawnFromPointTransform: {fileID: 0}
 --- !u!1 &244503682
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   _startSpawnTime: 1
   _endSpawnTime: 55
   _cd: 0.5
-  _radiusOfTown: 15
+  _radiusOfSpawnPoint: 20
   _spawnFromPointType: 0
   _spawnFromPointTransform: {fileID: 752090582}
 --- !u!1 &578855947
@@ -1981,7 +1981,7 @@ MonoBehaviour:
   _startSpawnTime: 10
   _endSpawnTime: 20
   _cd: 0.1
-  _radiusOfTown: 60
+  _radiusOfSpawnPoint: 0
   _spawnFromPointType: 2
   _spawnFromPointTransform: {fileID: 0}
 --- !u!4 &678006020
@@ -5241,7 +5241,7 @@ MonoBehaviour:
   _startSpawnTime: 1
   _endSpawnTime: 5
   _cd: 3
-  _radiusOfTown: 40
+  _radiusOfSpawnPoint: 0
   _spawnFromPointType: 2
   _spawnFromPointTransform: {fileID: 0}
 --- !u!1 &1797405379
@@ -5293,7 +5293,7 @@ MonoBehaviour:
   _startSpawnTime: 40
   _endSpawnTime: 41
   _cd: 0.1
-  _radiusOfTown: 30
+  _radiusOfSpawnPoint: 0
   _spawnFromPointType: 2
   _spawnFromPointTransform: {fileID: 0}
 --- !u!4 &1800892553 stripped
@@ -6191,7 +6191,7 @@ MonoBehaviour:
   _startSpawnTime: 1
   _endSpawnTime: 55
   _cd: 1
-  _radiusOfTown: 20
+  _radiusOfSpawnPoint: 20
   _spawnFromPointType: 0
   _spawnFromPointTransform: {fileID: 1585277}
 --- !u!4 &2051248060
@@ -6323,7 +6323,7 @@ MonoBehaviour:
   _startSpawnTime: 55
   _endSpawnTime: 70
   _cd: 0.1
-  _radiusOfTown: 100
+  _radiusOfSpawnPoint: 0
   _spawnFromPointType: 2
   _spawnFromPointTransform: {fileID: 0}
 --- !u!1 &2112129270

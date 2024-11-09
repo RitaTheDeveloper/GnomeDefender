@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour, IAttacker
     [SerializeField] protected LayerMask _layerMask;
     protected float _timer = 0f;
     protected UnitParameters _unitParameters;
-    protected GameObject _target = null;
+    public GameObject Target { get; protected set; } = null;
     protected SpawnerController _spawnerController;
 
     protected virtual void Awake()
@@ -41,18 +41,18 @@ public class Unit : MonoBehaviour, IAttacker
     {
         _timer += Time.fixedDeltaTime;
         FindObject findObject = new FindObject();
-        _target = findObject.FindTarget(_targetType, this.transform.position, _unitParameters.CurrentAttackRange, _layerMask);
+        Target = findObject.FindTarget(_targetType, this.transform.position, _unitParameters.CurrentAttackRange, _layerMask);
 
-        if (_target && _timer >= 1f / _unitParameters.CurrentAttackSpeed)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
+        if (Target && _timer >= 1f / _unitParameters.CurrentAttackSpeed)// && Vector2.Distance(transform.position, _target.transform.position) < _unitParameters.AttackRange)
             Attack();
     }
 
     public virtual void Attack()
     {
         _timer = 0f;   
-        if (_target != null)
+        if (Target != null)
         {
-            UseAbility(_target.GetComponent<IDamageable>(), 0);
+            UseAbility(Target.GetComponent<IDamageable>(), 0);
         }        
     }
 
@@ -63,6 +63,6 @@ public class Unit : MonoBehaviour, IAttacker
 
     public void SetTarget(GameObject target)
     {
-        _target = target;
+        Target = target;
     }
 }
