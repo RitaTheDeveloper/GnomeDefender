@@ -112,9 +112,9 @@ MonoBehaviour:
     m_Bits: 768
   targets:
   - targetType: 0
-    detectionRadius: 100
+    detectionRadius: 20
   - targetType: 1
-    detectionRadius: 100
+    detectionRadius: 20
 --- !u!114 &1255107821721221015
 MonoBehaviour:
   m_ObjectHideFlags: 0

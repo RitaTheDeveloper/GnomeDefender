@@ -8,13 +8,12 @@ public class SpawnerController : MonoBehaviour
     [SerializeField] private List<SpawnUnit> _listOfEnemySpawners;
 
     private GameManager _gameManager;
-    private GameObject _targetTown, _targetPlayer;
 
     private int _totalAmountOfEnemies;
     public int MaxNumberOfEnemies { get => _maxNumberOfEnemies; }
     public int TotalAmountOfEnemies { get => _totalAmountOfEnemies; }
-    public GameObject TargetTown { get => _targetTown; }
-    public GameObject TargetPlayer { get => _targetPlayer; }
+    public GameObject TargetTown { get; private set; }
+    public GameObject TargetPlayer { get; private set; }
 
     private void Start()
     {
@@ -24,8 +23,8 @@ public class SpawnerController : MonoBehaviour
     public void Init(GameManager gameManager)
     {
         _gameManager = gameManager;
-        _targetPlayer = _gameManager.Player;
-        _targetTown = _gameManager.Town;
+        TargetPlayer = _gameManager.Player;
+        TargetTown = _gameManager.Town;
 
         foreach (var spawner in _listOfEnemySpawners)
         {
@@ -58,16 +57,36 @@ public class SpawnerController : MonoBehaviour
         switch (targetType)
         {
             case TargetForEnemyType.Town:
-                target = _targetTown;
+                target = TargetTown;
                 break;
 
             case TargetForEnemyType.Player:
-                target = _targetPlayer;
+                target = TargetPlayer;
                 break;
             default:
                 break;
         }
 
         return target;
+    }
+
+    public GameObject GetSpawnPoint(SpawnPointType spawnType)
+    {
+        GameObject point = null;
+
+        switch (spawnType)
+        {
+            case SpawnPointType.Town:
+                point = TargetTown;
+                break;
+
+            case SpawnPointType.Player:
+                point = TargetPlayer;
+                break;
+            default:
+                break;
+        }
+
+        return point;
     }
 }

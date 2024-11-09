@@ -10,8 +10,9 @@ public class SpawnUnit : MonoBehaviour
     [SerializeField] private float _endSpawnTime = 10f;
     [SerializeField] private float _cd;
     [SerializeField] private float _radiusOfTown;
-    [SerializeField] private TargetForEnemyType _spawnFromTypeTarget;
-    private Transform _target;
+    [SerializeField] private SpawnPointType _spawnFromPointType;
+    [SerializeField] private Transform _spawnFromPointTransform;
+    private Transform _spawnPoint;
 
     private SpawnerController _spawnerController;
 
@@ -27,7 +28,7 @@ public class SpawnUnit : MonoBehaviour
 
     private void Start()
     {
-        if (_target)
+        if (_spawnPoint)
         {
             SetPosition();
             StartCoroutine(SpawnOneUnit());
@@ -42,12 +43,13 @@ public class SpawnUnit : MonoBehaviour
     public void Init(SpawnerController spawnerController)
     {
         _spawnerController = spawnerController;
-        _target = _spawnerController.GetTarget(_spawnFromTypeTarget).transform;
+        if (_spawnFromPointType == SpawnPointType.Null) { _spawnPoint = _spawnFromPointTransform; }
+        else { _spawnPoint = _spawnerController.GetSpawnPoint(_spawnFromPointType).transform; }
     }
 
     private IEnumerator SpawnOneUnit()
     {
-        while (_target && _spawnerController.CanSpawn() && _timerForStopSpawn < _endSpawnTime)
+        while (_spawnPoint && _spawnerController.CanSpawn() && _timerForStopSpawn < _endSpawnTime)
         {
             float timeSpawn = SetSpawnTime();
             yield return new WaitForSeconds(timeSpawn);
@@ -62,10 +64,10 @@ public class SpawnUnit : MonoBehaviour
 
     private void SetPosition()
     {
-        if (_target)
+        if (_spawnPoint)
         {
             Vector3 pos = new Vector3(Random.Range(-_radiusOfTown, _radiusOfTown), Random.Range(-_radiusOfTown, _radiusOfTown), 0f);
-            _spawnPosition = _target.position + pos;
+            _spawnPosition = _spawnPoint.position + pos;
         }
            
     }
