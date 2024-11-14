@@ -6186,7 +6186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5050ab4c85d68724fa87440e9e25b05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 6457298724524118817, guid: 03a16f7d016a8f14bab62ce7c8802f62, type: 3}
+  _unitPrefab: {fileID: 2729843968054114565, guid: 0ce2d1ae4f7ebdb43bc435586a646373, type: 3}
   _unitTransform: {fileID: 2051248060}
   _startSpawnTime: 1
   _endSpawnTime: 55
@@ -7047,7 +7047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StartAttackSpeed>k__BackingField: 2
-  <StartDamage>k__BackingField: 30
+  <StartDamage>k__BackingField: 2
   <StartAttackRange>k__BackingField: 6
   <StartMaxHealth>k__BackingField: 50
   <StartRegenerationHealth>k__BackingField: 3

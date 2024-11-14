@@ -39,28 +39,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        //if (target)
-        //{
-        //    targetCol = target.gameObject.GetComponent<Collider2D>();
-        //}
-
-        //if (target != null && !StopMove)
-        //{
-        //    ColliderDistance2D distance = myCol.Distance(targetCol);
-        //    if (!distance.isOverlapped)
-        //    {
-        //        MoveTowardsTarget();
-        //        RotateTowardsTarget();
-        //    }
-        //}
-        //else
-        //{
-        //    Patrol();
-        //}
-        
-    }
 
     public void FollowForTarget()
     {
