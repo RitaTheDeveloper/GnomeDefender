@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95070ea16aff2704bba11b32c81f0f74, type: 3}
   m_Name: EpicPlayerAttackSpeed
   m_EditorClassIdentifier: 
+  <Tier>k__BackingField: 1
   <Title>k__BackingField: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0430\u0442\u0430\u043A\u0438
     \u0437\u0430\u0449\u0438\u0442\u043D\u0438\u043A\u0430"
   <Description>k__BackingField: 

@@ -775,35 +775,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d952a3a7afbc343b9e90cfda4c0fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PerkTierStruct: {fileID: 11400000, guid: 584f4e92ae3eaae4da760782d5881299, type: 2}
   _perkConfigs:
   - {fileID: 11400000, guid: 096ee8ff96cac5e489c9985c18b842b6, type: 2}
-  - {fileID: 11400000, guid: 096ee8ff96cac5e489c9985c18b842b6, type: 2}
-  - {fileID: 11400000, guid: 096ee8ff96cac5e489c9985c18b842b6, type: 2}
   - {fileID: 11400000, guid: 756b53023fe2420409d2458a1ef3a207, type: 2}
-  - {fileID: 11400000, guid: 756b53023fe2420409d2458a1ef3a207, type: 2}
-  - {fileID: 11400000, guid: 756b53023fe2420409d2458a1ef3a207, type: 2}
-  - {fileID: 11400000, guid: 88b826c72497eda4792671f9b1bedf36, type: 2}
-  - {fileID: 11400000, guid: 88b826c72497eda4792671f9b1bedf36, type: 2}
-  - {fileID: 11400000, guid: 88b826c72497eda4792671f9b1bedf36, type: 2}
   - {fileID: 11400000, guid: 0a8a8d1574b1c284bb339f8e16ea26dd, type: 2}
-  - {fileID: 11400000, guid: 0a8a8d1574b1c284bb339f8e16ea26dd, type: 2}
-  - {fileID: 11400000, guid: 0a8a8d1574b1c284bb339f8e16ea26dd, type: 2}
-  - {fileID: 11400000, guid: e7772f4e6dceabf429be9852f583151e, type: 2}
-  - {fileID: 11400000, guid: e7772f4e6dceabf429be9852f583151e, type: 2}
-  - {fileID: 11400000, guid: e7772f4e6dceabf429be9852f583151e, type: 2}
-  - {fileID: 11400000, guid: e260ab9faa6aae84ab8c85412350992b, type: 2}
-  - {fileID: 11400000, guid: e260ab9faa6aae84ab8c85412350992b, type: 2}
-  - {fileID: 11400000, guid: e260ab9faa6aae84ab8c85412350992b, type: 2}
-  - {fileID: 11400000, guid: bea4974417664174fa43776aa4f72be6, type: 2}
-  - {fileID: 11400000, guid: bea4974417664174fa43776aa4f72be6, type: 2}
-  - {fileID: 11400000, guid: bea4974417664174fa43776aa4f72be6, type: 2}
   - {fileID: 11400000, guid: 4b418a9f66463c948b636048b8eb34dd, type: 2}
-  - {fileID: 11400000, guid: 87bb60abe689ab44e9761aa924a80f3c, type: 2}
   - {fileID: 11400000, guid: d010a7a513fb63643b2d4ec0e87329a8, type: 2}
-  - {fileID: 11400000, guid: f694f2d3536fa064cb092034f9a1d004, type: 2}
   - {fileID: 11400000, guid: b835aaf07b201924581e716fec1d3410, type: 2}
-  - {fileID: 11400000, guid: da7bc8d3dc75eb4459d26e8bae6dbd47, type: 2}
-  - {fileID: 11400000, guid: 751e6e474512bcc4faf633c79ab5b537, type: 2}
+  - {fileID: 11400000, guid: a72a15e42e5ff2041b06310b324523c2, type: 2}
   _numberOfProposedPerks: 3
 --- !u!4 &278753754
 Transform:
@@ -814,7 +794,7 @@ Transform:
   m_GameObject: {fileID: 278753752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7799096, y: -11.02523, z: 0.058993682}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6653,6 +6633,10 @@ PrefabInstance:
     - target: {fileID: 2053777861107936042, guid: 554c05d1e9db7b24b886dde7eccfe516, type: 3}
       propertyPath: m_Name
       value: Knight_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974859507160108199, guid: 554c05d1e9db7b24b886dde7eccfe516, type: 3}
+      propertyPath: <StartDamage>k__BackingField
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5661576024414914020, guid: 554c05d1e9db7b24b886dde7eccfe516, type: 3}
       propertyPath: gameManager

@@ -90,9 +90,9 @@ MonoBehaviour:
   <StartAttackSpeed>k__BackingField: 1
   <StartDamage>k__BackingField: 1
   <StartAttackRange>k__BackingField: 5
-  <StartMaxHealth>k__BackingField: 60
+  <StartMaxHealth>k__BackingField: 30
   <StartRegenerationHealth>k__BackingField: 0
-  <ExpForKill>k__BackingField: 1
+  <ExpForKill>k__BackingField: 3
 --- !u!114 &3835027134142266714
 MonoBehaviour:
   m_ObjectHideFlags: 0

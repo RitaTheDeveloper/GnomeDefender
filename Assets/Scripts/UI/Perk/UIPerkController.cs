@@ -12,7 +12,7 @@ public class UIPerkController : MonoBehaviour
 
     private void Start()
     {
-        CreateProposedPerks(_perkStorage.GetProposedPerksList());
+        CreateProposedPerks(_perkStorage.GetRandomProposedPerkList());
     }
 
     public void Init(GameManager gameManager)
@@ -26,7 +26,7 @@ public class UIPerkController : MonoBehaviour
         for (int i = 0; i < perks.Count; i++)
         {
             var perk = Instantiate(_proposedPerkPrefab, _panelOfProposedPerks);
-            perk.GetComponent<UIProposedPerk>().Init(perks[i], this);
+            perk.GetComponent<UIProposedPerk>().Init(perks[i], this, _perkStorage.PerkTierStruct);
         }
     }
 
@@ -41,7 +41,7 @@ public class UIPerkController : MonoBehaviour
     public void ClosePerkMenu()
     {        
         _gameManager.GetComponent<TimeController>().ContinueTime();
-        CreateProposedPerks(_perkStorage.GetProposedPerksList());
+        CreateProposedPerks(_perkStorage.GetRandomProposedPerkList());
         this.gameObject.SetActive(false);
     }
 }
