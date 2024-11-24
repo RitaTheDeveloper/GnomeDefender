@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PerkTierDataStruct:
   - <TierType>k__BackingField: 0
-    <Weight>k__BackingField: 5
+    <Weight>k__BackingField: 6
     <TierString>k__BackingField: "\u041E\u0431\u044B\u0447\u043D\u044B\u0439"
-    <TierColor>k__BackingField: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
+    <TierColor>k__BackingField: {r: 0.4433962, g: 0.4162068, b: 0.4162068, a: 1}
   - <TierType>k__BackingField: 1
-    <Weight>k__BackingField: 2
+    <Weight>k__BackingField: 3
     <TierString>k__BackingField: "\u042D\u043F\u0438\u0447\u0435\u0441\u043A\u0438\u0439"
-    <TierColor>k__BackingField: {r: 0.13318795, g: 0.1710659, b: 0.6886792, a: 1}
+    <TierColor>k__BackingField: {r: 0.43505958, g: 0.1013261, b: 0.6509434, a: 1}
   - <TierType>k__BackingField: 2
     <Weight>k__BackingField: 1
     <TierString>k__BackingField: "\u041B\u0435\u0433\u0435\u043D\u0434\u0430\u0440\u043D\u044B\u0439"
-    <TierColor>k__BackingField: {r: 0.80574036, g: 0, b: 1, a: 1}
+    <TierColor>k__BackingField: {r: 1, g: 0.7678358, b: 0.10849059, a: 1}
